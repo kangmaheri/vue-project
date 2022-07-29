@@ -1,19 +1,30 @@
+<template>
+  <button :class="active ? 'text-red' : 'text-green'" @click="toggle">
+    Click Me
+  </button>
+</template>
+
 <script>
 export default {
   data() {
     return {
-      greeting: "Hello Big World",
+      active: false,
     };
   },
-  mounted() {
-    setTimeout(() => {
-      this.greeting = "Changed";
-    }, 3000);
+
+  methods: {
+    toggle() {
+      this.active = !this.active;
+    },
   },
 };
 </script>
 
-<template>
-  <input type="text" v-model="greeting" />
-  <p>{{ greeting }} ({{ greeting.length }})</p>
-</template>
+<style scoped>
+.text-green {
+  color: green;
+}
+.text-red {
+  color: red;
+}
+</style>
