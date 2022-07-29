@@ -6,24 +6,12 @@
 </template>
 
 <script>
+import AppButton from '../components/AppButton.vue';
+
 export default {
   
   components: {
-    'App-button': {
-            data() {
-          return {
-            count: 0,
-            processing: true
-          }
-        },
-      /*html */
-      template: `
-          <button @click="count++" :disabled="processing">
-            <slot />
-            You clicked me {{ count }} times.
-          </button>
-        `
-    },
+    'App-button': AppButton
   },
 }
 </script>
