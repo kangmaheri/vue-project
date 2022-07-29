@@ -1,20 +1,52 @@
 <template>
-  <button :class="active ? 'text-red' : 'text-green'" @click="toggle">
-    Click Me
-  </button>
+  <app-button></app-button>
+  <section v-show="uncompletedAssignments.length">
+    <h2>Assignments</h2>
+    <ul>
+      <li v-for="assignment in uncompletedAssignments" :key="assignment.id">
+        {{ assignment.name }}
+        <input type="checkbox" v-model="assignment.complete" />
+      </li>
+    </ul>
+  </section>
+  <br />
+  <section v-show="completedAssignments.length">
+    <h2>Completed Assignments</h2>
+    <ul>
+      <li v-for="assignment in completedAssignments" :key="assignment.id">
+        {{ assignment.name }}
+        <input type="checkbox" v-model="assignment.complete" />
+      </li>
+    </ul>
+  </section>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      active: false,
+      assignments: [
+        { id: 1, name: "Finish Project", complete: false },
+        { id: 2, name: "Read Chapter 4", complete: false },
+        { id: 3, name: "Turn in Homework", complete: false },
+      ],
     };
   },
 
-  methods: {
-    toggle() {
-      this.active = !this.active;
+  computed: {
+    completedAssignments() {
+      return this.assignments.filter((a) => a.complete);
+    },
+    uncompletedAssignments() {
+      return this.assignments.filter((a) => !a.complete);
+    },
+  },
+
+  components: {
+      'app-button': {
+        mounted() {
+        alert('hello');
+      },
     },
   },
 };
