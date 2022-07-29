@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import AppButton from '../components/AppButton.vue';
+import AppButton from '../components/AppButton.js';
 
 export default {
   
