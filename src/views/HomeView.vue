@@ -1,5 +1,4 @@
 <template>
-  <app-button></app-button>
   <section v-show="uncompletedAssignments.length">
     <h2>Assignments</h2>
     <ul>
@@ -19,6 +18,7 @@
       </li>
     </ul>
   </section>
+
 </template>
 
 <script>
@@ -39,14 +39,6 @@ export default {
     },
     uncompletedAssignments() {
       return this.assignments.filter((a) => !a.complete);
-    },
-  },
-
-  components: {
-      'app-button': {
-        mounted() {
-        alert('hello');
-      },
     },
   },
 };
