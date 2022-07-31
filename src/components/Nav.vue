@@ -11,38 +11,39 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <NavUl>
         <li>
-          <NavLinks class="md:text-blue-700" aria-current="page">
-            <RouterLink to="/">Home</RouterLink>
+          <NavLinks to="/" class="md:text-blue-700" aria-current="page">
+            Home
           </NavLinks>
         </li>
         <li>
-          <NavLinks>
-            <RouterLink to="/about">About</RouterLink>
-          </NavLinks>
+          <NavLinks to="/about">About</NavLinks>
         </li>
         <li>
-          <NavLinks>
-            <RouterLink to="/house">House</RouterLink>
-          </NavLinks>
+            <NavLinks to="/house">House</NavLinks>
         </li>
         <li>
-          <NavLinks href="#">Pricing</NavLinks>
+            <NavLinks to="/all">All</NavLinks>
         </li>
         <li>
-          <NavLinks href="#">Contact</NavLinks>
+          <NavLinks to="#">Contact</NavLinks>
         </li>
       </NavUl>
     </div>
   </div>
 </nav>
 
+<div class="container flex justify-center items-center mt-10 flex-col">
+
 <RouterView />
 
+</div>
 </template>
 
 <script setup>
-import NavLinks from './NavLinks.vue';
+import NavLinks from './NavLinks.vue'; 
 import NavUl from './NavUl.vue';
 import NavButton from './NavButton.vue';
 import { RouterLink, RouterView } from "vue-router";
+
+
 </script>
