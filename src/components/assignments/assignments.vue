@@ -10,19 +10,19 @@
     title="Completed Assignment"
   ></AssignmentsList>
 
-  <form @submit.prevent="add" class="border border-gray-600">
-    <input type="text" v-model="newAssignment" placeholder="New Assignment..." />
-    <button type="submit" class="border rounded">Add</button>
-  </form>
+  <AssignmentCreate @tambah="add"></AssignmentCreate>
+  
 </template>
 
 <script>
 import AssignmentsList from '../assignments/assignmentsList.vue';
+import AssignmentCreate from '../assignments/assignmentCreate.vue';
 export default {
   components: {
     AssignmentsList,
+    AssignmentCreate
   },
-  
+
   data() {
     return {
       assignments: [
@@ -30,8 +30,6 @@ export default {
         { id: 2, name: "Read Chapter 4", complete: false },
         { id: 3, name: "Turn in Homework", complete: false },
       ],
-
-      newAssignment: '',
     };
   },
 
@@ -45,13 +43,12 @@ export default {
   },
 
   methods: {
-    add() {
+    add(name) {
       this.assignments.push({
-        name: this.newAssignment,
+        name: name,
         completed: false,
         id: this.assignments.length + 1,
       });
-      this.newAssignment = '';
     },
   },
 };
