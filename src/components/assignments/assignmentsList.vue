@@ -4,19 +4,13 @@
       {{  title  }}
       ({{ assignments.length }})
     </h2>
-    <div class="flex gap-2">
-      <button 
-        @click="currentTag = tag"
-        v-for="tag, index in tags" 
-        :key="index" 
-        class="border rounded px-1 py-px text-xs hover:bg-slate-500 hover:text-white"
-        :class="{
-          'border-blue-500 text-blue-500' : tag === currentTag
-        }"
-      >
-        {{ tag }}
-      </button>
-    </div>
+    
+    <AssignmentTags 
+      :initialTags="assignments.map((a) => a.tag)" 
+      :currentTag="currentTag"
+      @change="currentTag = $event"
+    />
+    
     <ul class="mt-6">
       <Assignment 
         v-for="assignment in filteredAssignments" 
@@ -29,9 +23,12 @@
 
 <script>
 import Assignment from '../assignments/assignment.vue';
+import AssignmentTags from '../assignments/AssignmentTags.vue';
+
 export default { 
   components: {
     Assignment,
+    AssignmentTags,
   },
   
   props: {
@@ -41,7 +38,7 @@ export default {
   
   data() {
     return {
-      currentTag: 'all'
+      currentTag: 'all' 
     };
   },
 
@@ -52,10 +49,6 @@ export default {
       }
       return this.assignments.filter((a) => a.tag === this.currentTag);
     },
-
-    tags() {
-      return ['all', ...new Set(this.assignments.map(a => a.tag)) ];
-    }
   }
  };
 </script>
