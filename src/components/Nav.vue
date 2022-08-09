@@ -25,25 +25,19 @@
             <NavLinks to="/all">All</NavLinks>
         </li>
         <li>
-          <NavLinks to="#">Contact</NavLinks>
+          <NavLinks to="/counter">Counter</NavLinks>
+        </li>
+        <li>
+          <NavLinks to="/mycounter">Counter</NavLinks>
         </li>
       </NavUl>
     </div>
   </div>
 </nav>
-
-<div class="container flex justify-center items-center mt-10 flex-col">
-
-<RouterView />
-
-</div>
 </template>
 
 <script setup>
 import NavLinks from './NavLinks.vue'; 
 import NavUl from './NavUl.vue';
 import NavButton from './NavButton.vue';
-import { RouterLink, RouterView } from "vue-router";
-
-
 </script>
