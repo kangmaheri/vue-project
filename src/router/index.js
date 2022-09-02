@@ -4,6 +4,7 @@ import House from "../views/House.vue";
 import All from '../views/All.vue';
 import Counter from '../views/Counter.vue';
 import MyCounter from '../views/MyCounter.vue';
+import Computed from '../views/Computed.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
       path: "/mycounter",
       name: "mycounter",
       component: MyCounter,
+    },
+    {
+      path: "/computed",
+      name: "computed",
+      component: Computed,
     },
   ],
 });
